@@ -11,10 +11,9 @@ opcao = ""
 while opcao != "5":
     print("1 - somar\n2 - subtrair\n3 - multiplicar\n4 - dividir\n5 - sair")
     opcao = input("Digite uma opção: ")
-
     
     try:
-        opcao_valida = possiveis_opcoes.inex(opcao) > -1
+        opcao_valida = possiveis_opcoes.index(opcao) > -1
     except ValueError:
         print("Opção inválida")
         opcao_valida = False
