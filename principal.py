@@ -37,3 +37,5 @@ while opcao != "5":
             resultado = calculadora.dividir(numero1, numero2)
         
         print(f"Resultado: {resultado}")
+
+#nova linha
