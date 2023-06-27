@@ -1,7 +1,8 @@
 class Aluno():
-    def __init__(self, nome_completo, notas):
+    def __init__(self, nome_completo, notas, email):
         self.nome_completo = nome_completo
         self.notas = notas
+        self.email = email
 
     def get_media_nota(self):
         total = 0

@@ -1,4 +1,4 @@
-from controller_alunos import gerar_arquivo_alunos_aprovados, gerar_arquivo_alunos_reprovados
+import controller_alunos
 
 while True:
     print("1 - gerar arquivo de alunos aprovados e reprovados\n2 - enviar email para alunos aprovados\n3 - sair")
@@ -7,13 +7,12 @@ while True:
     match opcao_escolhida:
         case '1':
             #executar a função referente a geração de arquivo
-            gerar_arquivo_alunos_aprovados()
-            gerar_arquivo_alunos_reprovados()
+            controller_alunos.gerar_arquivo_alunos_aprovados()
+            controller_alunos.gerar_arquivo_alunos_reprovados()
             print("Os arquivos foram gerados com sucesso na pasta saida/")
-            pass
         case '2':
             #enviar email
-            pass
+            controller_alunos.enviar_emails_alunos_aprovados()
         case '3':
             break
         case other:
