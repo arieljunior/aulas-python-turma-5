@@ -19,7 +19,7 @@ def get_alunos_aprovados():
     return [aluno for aluno in alunos if aluno.get_situacao() == "APROVADO"]
 
 def gerar_arquivo_alunos_aprovados():
-    linhas_alunos_aprovados = [f"{aluno.get_linha_arquivo()}\n" for aluno in alunos if aluno.get_situacao() == "APROVADO"]
+    linhas_alunos_aprovados = [f"{aluno.get_linha_arquivo()}" for aluno in alunos if aluno.get_situacao() == "APROVADO"]
     criar_arquivo(
         "gerador-aprovados-reprovados/saida/alunos_aprovados.txt", 
         linhas_alunos_aprovados, 
@@ -27,7 +27,7 @@ def gerar_arquivo_alunos_aprovados():
     )
 
 def gerar_arquivo_alunos_reprovados():
-    linhas_alunos_reprovados = [f"{aluno.get_linha_arquivo()}\n" for aluno in alunos if aluno.get_situacao() == "REPROVADO"]
+    linhas_alunos_reprovados = [f"{aluno.get_linha_arquivo()}" for aluno in alunos if aluno.get_situacao() == "REPROVADO"]
     criar_arquivo(
         "gerador-aprovados-reprovados/saida/alunos_reprovados.txt", 
         linhas_alunos_reprovados, 
