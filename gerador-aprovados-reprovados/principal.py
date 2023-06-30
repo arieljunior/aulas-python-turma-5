@@ -12,7 +12,8 @@ while True:
             print("Os arquivos foram gerados com sucesso na pasta saida/")
         case '2':
             #enviar email
-            controller_alunos.enviar_emails_alunos_aprovados()
+            controller_alunos.enviar_emails_alunos_por_situacao(situacao="APROVADO", titulo="Parabéns")
+            controller_alunos.enviar_emails_alunos_por_situacao(situacao="REPROVADO", titulo="Surpresa sua nota esta aqui")
         case '3':
             break
         case other:
