@@ -1,5 +1,5 @@
 #Importar modulo forma padrão
-import calculadora 
+from calculadora import Calculadora 
 
 #Importar modulo por função
 # from calculadora import somar, subtrair, multiplicar, dividir, nome_modulo
@@ -27,13 +27,13 @@ while opcao != "5":
 
         resultado = 0
         if opcao == '1':
-            resultado = calculadora.somar(numero1, numero2)
+            resultado = Calculadora.somar(numero1, numero2)
         elif opcao == '2':
-            resultado = calculadora.subtrair(numero1, numero2)
+            resultado = Calculadora.subtrair(numero1, numero2)
         elif opcao == '3':
-            resultado = calculadora.multiplicar(numero1, numero2)
+            resultado = Calculadora.multiplicar(numero1, numero2)
         elif opcao == '4':
-            resultado = calculadora.dividir(numero1, numero2)
+            resultado = Calculadora.dividir(numero1, numero2)
         
         print(f"Resultado: {resultado}")
 
