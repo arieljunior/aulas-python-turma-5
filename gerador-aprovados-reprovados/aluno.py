@@ -17,6 +17,7 @@ class Aluno():
             return "APROVADO"
         else:
             return "REPROVADO"
+        
     def get_linha_arquivo(self):
         media = self.get_media_nota()
         situacao = self.get_situacao()
