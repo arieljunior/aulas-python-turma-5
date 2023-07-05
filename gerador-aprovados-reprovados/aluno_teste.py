@@ -36,9 +36,20 @@ class AlunoTeste(TestCase):
         self.assertTrue(situacao_esta_dentro_da_linha, "Situação do aluno não esta na linha para gerar o arquivo")
         self.assertTrue(nome_esta_dentro_da_linha, "Nome completo do aluno não esta na linha para gerar o arquivo")
 
+    def testar_montagem_lista_destinatarios(self):
+        destinatarios = Aluno.montar_lista_destinatarios([self.aluno], "APROVADO")
 
+        tem_chave_email = False
+        tem_chave_mensagem = False
 
+        for destinatario in destinatarios:
+            if "email" in destinatario:
+                tem_chave_email = True
+            if "mensagem" in destinatario:
+                tem_chave_mensagem = True
 
+        self.assertTrue(tem_chave_email, "Não foi encontrado a chave email")
+        self.assertTrue(tem_chave_mensagem, "Não foi encontrado a chave mensagem")
 
 if __name__ == "__main__":
     main()
