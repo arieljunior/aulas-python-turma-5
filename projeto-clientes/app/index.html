@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="ul-clientes"></ul>
+    <script>
+        
+        function buscar_clientes(){
+            fetch("http://localhost:8000/clientes", { method: "GET" }).then(
+              async function (resposta) {
+                const clientes = await resposta.json();
+      
+                const ulElement = document.querySelector("#ul-clientes");
+                ulElement.innerHTML = ""
+                clientes.forEach((cliente) => {
+                  const li = document.createElement("li");
+                  li.innerHTML = `ID: ${cliente.id} nome: ${cliente.nome} 
+                      <button type="button" onClick="deletarCliente('${cliente.id}', '${cliente.nome}')">Deletar</button>`;
+                  ulElement.appendChild(li);
+                });
+              }
+            );
+        }
+
+      function deletarCliente(idCliente, nomeCliente) {
+
+        const isOk = confirm(`Você deseja deletar o ${nomeCliente}`)
+
+        if(isOk){
+            fetch(`http://localhost:8000/cliente/${idCliente}`, {
+              method: "DELETE",
+            }).then((resposta) => resposta.json()).then(data => {
+                buscar_clientes()
+                alert(data.mensagem)
+            });
+        }
+      }
+
+      buscar_clientes()
+    </script>
+  </body>
+</html>

@@ -1,6 +1,10 @@
+#pip install flask
 from flask import Flask, jsonify, request
+#pip install flask_cors
+from flask_cors import CORS 
 
 servidor = Flask(__name__)
+CORS(servidor)
 
 clientes = [{
     "id": 1,
